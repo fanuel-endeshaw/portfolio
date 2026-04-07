@@ -44,26 +44,38 @@ const NavBar = ({ onClose, mode, setMode }) => {
         justifyContent: "space-between",
         width: "85%",
         margin: "auto",
-        borderRadius: "10px",
+        borderRadius: "22px",
         top: "12px",
         //  border: "1px solid #f04e23",
         // boxShadow: "0 0 50px #f04e23",
-        backgroundColor: "#08080850",
+        backgroundColor: "#f04e23",
+        // backgroundColor: "#08080850",
       }}
     >
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Toolbar
+        sx={{
+          display: "flex",
+          gap: "20px",
+          // margin: "auto",
+          justifyContent: "space-between",
+        }}
+      >
         <Typography
           variant="h4"
           component={ScrollLink}
+          spy={true}
+          smooth={true}
+          offset={-70} // Adjust based on navbar height
+          duration={500}
           to="home"
           sx={{
             display: { xs: "block", sm: "block" },
             textDecoration: "none",
-            color: "white",
+            color: "black",
             cursor: "pointer",
           }}
         >
-          F<span style={{ color: "#f04e23" }}>E</span>
+          F<span style={{ color: "#ffffffff" }}>E</span>
         </Typography>
         <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 3 }}>
           {navItems.map((item) => (
@@ -76,16 +88,20 @@ const NavBar = ({ onClose, mode, setMode }) => {
               offset={-70} // Adjust based on navbar height
               duration={500}
               sx={{
-                color: "#fff",
+                color: "black",
+                // color: "#ff4d05",
                 textTransform: "capitalize",
                 fontSize: "1rem",
+                fontWeight: 500,
+
                 "&.active": {
-                  color: "#ff4d05", // The orange glow color from your image
+                  color: "#ffffffff", // The orange glow color from your image
                   fontWeight: "bold",
                 },
                 "&:hover": {
                   backgroundColor: "transparent",
-                  color: "#ff4d05",
+                  color: "#fff",
+                  // color: "#ff4d05",
                 },
               }}
             >

@@ -12,6 +12,8 @@ import * as React from "react";
 import Typewriter from "typewriter-effect";
 import About from "../pages/About";
 import Skills from "../pages/Skills";
+import ServicesSection from "../pages/ServicesSection";
+import ProjectsSection from "../pages/ProjectsSection";
 export default function Feed() {
   return (
     <>
@@ -22,11 +24,11 @@ export default function Feed() {
         sx={{
           bgcolor: "#080808", // Main background color
           color: "white",
-          px: { xs: 2, md: 8 },
+          px: { xs: 2, md: 10 },
           alignItems: "center",
           justifyContent: "center",
           height: "100vh",
-          marginLeft: { md: "40px" },
+          marginLeft: { md: "50px" },
         }}
       >
         {/* Introduction Section */}
@@ -149,18 +151,19 @@ export default function Feed() {
 </Box> */}
       <About></About>
       <Skills></Skills>
-      <Box
+      {/* <Box
         id="services"
         sx={{ minHeight: "100vh", pt: 10, backgroundColor: "white" }}
       >
-        {/* Your Services Section Content */}
-      </Box>
-      <Box
+      </Box> */}
+      <ServicesSection></ServicesSection>
+      <ProjectsSection></ProjectsSection>
+      {/* <Box
         id="projects"
         sx={{ minHeight: "100vh", pt: 10, backgroundColor: "grey" }}
       >
-        {/* Your About Section Content */}
-      </Box>
+       
+      </Box> */}
     </>
   );
 }
