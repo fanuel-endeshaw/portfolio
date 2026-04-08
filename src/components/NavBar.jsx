@@ -46,10 +46,12 @@ const NavBar = ({ onClose, mode, setMode }) => {
         margin: "auto",
         borderRadius: "22px",
         top: "12px",
+        // height: { xs: "30px", md: "1rem" },
         //  border: "1px solid #f04e23",
         // boxShadow: "0 0 50px #f04e23",
         backgroundColor: "#f04e23",
         // backgroundColor: "#08080850",
+        // py: "0px",
       }}
     >
       <Toolbar

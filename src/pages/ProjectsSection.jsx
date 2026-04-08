@@ -25,7 +25,7 @@ const projects = [
     image: "/car.jpg",
     type: "desktop",
     tech: ["Java", "JavaFX", "MySQL"],
-    github: "https://github.com/yourusername/car-rental",
+    github: "#",
     live: "#",
   },
   {
@@ -36,229 +36,232 @@ const projects = [
     image: "/traffic.jpg",
     type: "desktop",
     tech: ["C++", "Arduino", "IoT"],
-    github: "https://github.com/yourusername/traffic-light",
-    live: "#",
-  },
-  {
-    title: "Live Transcription App",
-    category: "React Native",
-    description:
-      "A mobile application that provides real-time speech-to-text transcription, powered by FastAPI backend services.",
-    image: "/live.jpg",
-    type: "mobile",
-    tech: ["React Native", "FastAPI"],
-    github: "https://github.com/yourusername/live-transcription",
-    live: "#",
-  },
-  {
-    title: "ReDo Mobile App",
-    category: "React Native",
-    description:
-      "A comprehensive mobile app for task management and habit tracking, offering personalized insights and reminders.",
-    image: "/redo.jpg",
-    type: "mobile",
-    tech: ["React Native", "Expo"],
-    github: "https://github.com/yourusername/redo",
-    live: "#",
-  },
-  {
-    title: "E-Commerce UI",
-    category: "Frontend Development",
-    description:
-      "A modern, highly responsive e-commerce storefront with dynamic product filtering, smooth cart interactions, and Redux state management.",
-    image: "/ecommerce.jpg",
-    type: "web",
-    tech: ["React", "Material UI", "Redux"],
-    github: "https://github.com/yourusername/shop-ui",
+    github: "#",
     live: "#",
   },
   {
     title: "Real Estate Management",
     category: "Odoo / ERP",
     description:
-      "An ERP solution tailored for real estate operations, streamlining property listings, client interactions, and lease management.",
-    image: "/realestate.jpg",
+      "ERP solution for managing properties, clients, and lease workflows.",
+    image: "/car.jpg",
     type: "desktop",
     tech: ["Python", "Odoo", "PostgreSQL"],
-    github: "https://github.com/yourusername/odoo-estate",
+    github: "#",
+    live: "#",
+  },
+  {
+    title: "Live Transcription App",
+    category: "React Native",
+    description: "A real-time transcription mobile app.",
+    image: "/live.jpg",
+    type: "mobile",
+    tech: ["React Native", "FastAPI"],
+    github: "#",
+    live: "#",
+  },
+  // {
+  //   title: "ReDo Mobile App",
+  //   category: "React Native",
+  //   description:
+  //     "Task management and habit tracking app with personalized insights.",
+  //   image: "/redo.jpg",
+  //   type: "mobile",
+  //   tech: ["React Native", "Expo"],
+  //   github: "#",
+  //   live: "#",
+  // },
+  {
+    title: "E-Commerce UI",
+    category: "Frontend",
+    description:
+      "Responsive e-commerce UI with filtering and smooth cart interactions.",
+    image: "/redo.jpg",
+    type: "mobile",
+    tech: ["React", "MUI", "Redux"],
+    github: "#",
     live: "#",
   },
 ];
 
 const ProjectsSection = () => {
   return (
-    <Box sx={{ bgcolor: "#050505", py: { xs: 5, md: 4 } }} id="projects">
+    <Box sx={{ bgcolor: "#050505", py: { xs: 4, md: 5 } }} id="projects">
       <Container maxWidth="lg">
+        {/* Title */}
         <Typography
-          variant="h4"
+          variant="h5"
           sx={{
             color: "#fff",
-            fontWeight: "900",
+            fontWeight: 800,
             mb: 4,
-            letterSpacing: "-0.5px",
             textAlign: "center",
           }}
         >
           Selected <span style={{ color: "#FF5722" }}>Works</span>
         </Typography>
-        {/* <Typography
-          variant="h6"
-          sx={{
-            color: "#888",
-            fontWeight: "400",
-            mb: 5,
-            maxWidth: "600px",
-          }}
-        >
-          A collection of my recent projects ranging from mobile applications to embedded systems and enterprise solutions.
-        </Typography> */}
 
-        <Grid container spacing={3}>
+        {/* Grid */}
+        <Grid container spacing={7} sx={{ justifyContent: "center" }}>
           {projects.map((project, index) => (
-            <Grid item key={index} xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={12} md={6} key={index}>
               <Card
                 sx={{
-                  height: "100%",
+                  height: "360px",
+                  width: { md: "400px" },
                   display: "flex",
                   flexDirection: "column",
-                  bgcolor: "rgba(255, 255, 255, 0.02)",
-                  borderRadius: "24px",
+                  bgcolor: "rgba(255,255,255,0.03)",
+                  borderRadius: "16px",
                   overflow: "hidden",
-                  border: "1px solid rgba(255, 255, 255, 0.05)",
-                  backdropFilter: "blur(10px)",
-                  transition:
-                    "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                  transition: "all 0.3s ease",
+                  cursor: "pointer",
+
                   "&:hover": {
-                    borderColor: "rgba(255, 87, 34, 0.5)",
-                    transform: "translateY(-8px)",
-                    boxShadow:
-                      "0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(255,87,34,0.1)",
-                    "& .project-overlay": { opacity: 1 },
-                    "& .project-image": { transform: "scale(1.05)" },
+                    transform: "translateY(-5px)",
+                    boxShadow: "0 10px 25px rgba(0,0,0,0.5)",
+                    borderColor: "rgba(255,87,34,0.4)",
+
+                    "& .project-overlay": {
+                      opacity: 1,
+                    },
+                    "& .project-image": {
+                      transform: "scale(1.05)",
+                    },
                   },
                 }}
               >
+                {/* IMAGE */}
                 <Box
                   sx={{
                     position: "relative",
                     width: "100%",
-                    pt: "45%",
-                    bgcolor: "#000",
+                    aspectRatio: project.type === "mobile" ? "3/4" : "16/9",
+                    bgcolor: "#0a0a0a",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                     overflow: "hidden",
                   }}
                 >
+                  {/* Glow for mobile */}
+                  {project.type === "mobile" && (
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        width: "70%",
+                        height: "70%",
+                        background: "rgba(255,87,34,0.15)",
+                        filter: "blur(50px)",
+                        borderRadius: "50%",
+                      }}
+                    />
+                  )}
+
                   <CardMedia
-                    className="project-image"
                     component="img"
                     image={project.image}
                     alt={project.title}
+                    className="project-image"
                     sx={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      height: "100%",
+                      width: project.type === "mobile" ? "60%" : "100%",
+                      height: project.type === "mobile" ? "85%" : "100%",
                       objectFit:
                         project.type === "mobile" ? "contain" : "cover",
-                      objectPosition: "center",
-                      transition: "transform 0.6s ease",
-                      ...(project.type === "mobile" && { p: 2 }),
+                      borderRadius: project.type === "mobile" ? "16px" : 0,
+                      boxShadow:
+                        project.type === "mobile"
+                          ? "0 8px 20px rgba(0,0,0,0.6)"
+                          : "none",
+                      transition: "transform 0.5s ease",
                     }}
                   />
 
-                  {/* Hover Overlay */}
+                  {/* Category Badge */}
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: 10,
+                      left: 10,
+                      bgcolor: "rgba(0,0,0,0.6)",
+                      color: "#FF5722",
+                      px: 1.2,
+                      py: 0.4,
+                      borderRadius: "999px",
+                      fontSize: "0.65rem",
+                      fontWeight: 600,
+                      backdropFilter: "blur(6px)",
+                    }}
+                  >
+                    {project.category}
+                  </Box>
+
+                  {/* Overlay */}
                   <Box
                     className="project-overlay"
                     sx={{
                       position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      height: "100%",
+                      inset: 0,
                       background:
-                        "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(255,87,34,0.2) 100%)",
+                        "linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2))",
                       display: "flex",
-                      flexDirection: "column",
                       alignItems: "center",
                       justifyContent: "center",
+                      gap: 1.5,
                       opacity: 0,
-                      transition: "opacity 0.4s ease",
-                      backdropFilter: "blur(2px)",
+                      transition: "0.3s ease",
                     }}
                   >
-                    <Stack
-                      direction="row"
-                      spacing={2}
-                      sx={{ mt: "auto", mb: 8 }}
+                    <IconButton
+                      href={project.github}
+                      target="_blank"
+                      size="small"
+                      sx={{
+                        bgcolor: "#fff",
+                        color: "#000",
+                        "&:hover": {
+                          bgcolor: "#FF5722",
+                          color: "#fff",
+                        },
+                      }}
                     >
-                      <IconButton
-                        href={project.github}
-                        target="_blank"
-                        sx={{
-                          bgcolor: "#fff",
-                          color: "#000",
-                          width: 48,
-                          height: 48,
-                          "&:hover": {
-                            bgcolor: "#FF5722",
-                            color: "#fff",
-                            transform: "scale(1.1)",
-                          },
-                          transition: "all 0.2s ease",
-                        }}
-                      >
-                        <GitHubIcon />
-                      </IconButton>
-                      <IconButton
-                        href={project.live}
-                        target="_blank"
-                        sx={{
-                          bgcolor: "#fff",
-                          color: "#000",
-                          width: 48,
-                          height: 48,
-                          "&:hover": {
-                            bgcolor: "#FF5722",
-                            color: "#fff",
-                            transform: "scale(1.1)",
-                          },
-                          transition: "all 0.2s ease",
-                        }}
-                      >
-                        <LaunchIcon />
-                      </IconButton>
-                    </Stack>
+                      <GitHubIcon fontSize="small" />
+                    </IconButton>
+
+                    <IconButton
+                      href={project.live}
+                      target="_blank"
+                      size="small"
+                      sx={{
+                        bgcolor: "#fff",
+                        color: "#000",
+                        "&:hover": {
+                          bgcolor: "#FF5722",
+                          color: "#fff",
+                        },
+                      }}
+                    >
+                      <LaunchIcon fontSize="small" />
+                    </IconButton>
                   </Box>
                 </Box>
 
+                {/* CONTENT */}
                 <CardContent
                   sx={{
-                    p: 2,
-                    flexGrow: 1,
+                    p: 1.5,
                     display: "flex",
                     flexDirection: "column",
+                    flexGrow: 1,
                   }}
                 >
                   <Typography
-                    variant="overline"
-                    sx={{
-                      color: "#FF5722",
-                      fontWeight: "700",
-                      letterSpacing: 2,
-                      mb: 0,
-                      display: "block",
-                      fontSize: "0.65rem",
-                    }}
-                  >
-                    {project.category}
-                  </Typography>
-                  <Typography
-                    variant="h6"
+                    variant="subtitle2"
                     sx={{
                       color: "#fff",
-                      fontWeight: "bold",
-                      mb: 0.5,
-                      fontSize: "1.1rem",
+                      fontWeight: 600,
+                      mb: 0.3,
                     }}
                   >
                     {project.title}
@@ -268,9 +271,9 @@ const ProjectsSection = () => {
                     variant="body2"
                     sx={{
                       color: "#aaa",
-                      lineHeight: 1.5,
-                      mb: 1.5,
-                      flexGrow: 1,
+                      fontSize: "0.8rem",
+                      lineHeight: 1.3,
+                      mb: 0.8,
                       display: "-webkit-box",
                       WebkitLineClamp: 2,
                       WebkitBoxOrient: "vertical",
@@ -280,9 +283,10 @@ const ProjectsSection = () => {
                     {project.description}
                   </Typography>
 
+                  {/* Tech */}
                   <Stack
                     direction="row"
-                    spacing={1}
+                    spacing={0.5}
                     flexWrap="wrap"
                     useFlexGap
                     sx={{ mt: "auto" }}
@@ -293,23 +297,38 @@ const ProjectsSection = () => {
                         label={tech}
                         size="small"
                         sx={{
-                          bgcolor: "rgba(255,255,255,0.05)",
-                          color: "#ccc",
-                          borderRadius: "8px",
-                          fontWeight: 500,
-                          fontSize: "0.75rem",
-                          border: "1px solid rgba(255,255,255,0.1)",
+                          bgcolor: "rgba(255,255,255,0.06)",
+                          color: "#ddd",
+                          borderRadius: "999px",
+                          fontSize: "0.65rem",
+                          height: "20px",
                         }}
                       />
                     ))}
                   </Stack>
+
+                  {/* CTA */}
+                  <Button
+                    size="small"
+                    endIcon={<ArrowForwardIcon />}
+                    sx={{
+                      mt: 0.5,
+                      color: "#FF5722",
+                      textTransform: "none",
+                      fontSize: "0.75rem",
+                      alignSelf: "flex-start",
+                    }}
+                  >
+                    View Project
+                  </Button>
                 </CardContent>
               </Card>
             </Grid>
           ))}
         </Grid>
 
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 6 }}>
+        {/* Bottom Button */}
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
           <Button
             variant="outlined"
             endIcon={<ArrowForwardIcon />}
@@ -317,16 +336,14 @@ const ProjectsSection = () => {
               color: "#fff",
               borderColor: "rgba(255,255,255,0.2)",
               borderRadius: "50px",
-              py: 1.5,
-              px: 4,
-              fontSize: "1rem",
+              py: 1,
+              px: 3,
               textTransform: "none",
               fontWeight: 600,
-              transition: "all 0.3s ease",
+              fontSize: "0.9rem",
               "&:hover": {
                 borderColor: "#FF5722",
                 bgcolor: "rgba(255,87,34,0.1)",
-                transform: "translateX(4px)",
               },
             }}
           >

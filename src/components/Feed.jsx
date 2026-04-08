@@ -22,7 +22,7 @@ export default function Feed() {
         direction={{ xs: "column-reverse", md: "row" }} // Stack on mobile, side-by-side on desktop
         spacing={4}
         sx={{
-          bgcolor: "#080808", // Main background color
+          bgcolor: "#000", // Main background color
           color: "white",
           px: { xs: 2, md: 10 },
           alignItems: "center",
@@ -71,7 +71,7 @@ export default function Feed() {
                 color: "#a0a0a0",
                 maxWidth: "500px",
                 mb: 3,
-                textAlign: { xs: "center", md: "left" },
+                textAlign: { xs: "left", md: "left" },
               }}
             >
               I am a React Native Specialist and Fullstack Developer dedicated
@@ -158,12 +158,11 @@ export default function Feed() {
       </Box> */}
       <ServicesSection></ServicesSection>
       <ProjectsSection></ProjectsSection>
-      {/* <Box
-        id="projects"
-        sx={{ minHeight: "100vh", pt: 10, backgroundColor: "grey" }}
-      >
-       
-      </Box> */}
+
+      <Box
+        id="contact"
+        sx={{ minHeight: "100vh", pt: 10, backgroundColor: "#080808" }}
+      ></Box>
     </>
   );
 }
