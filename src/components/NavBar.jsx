@@ -45,12 +45,12 @@ const NavBar = ({ onClose, mode, setMode }) => {
         width: "85%",
         margin: "auto",
         borderRadius: "22px",
-        top: "12px",
+        top: "8px",
         // height: { xs: "30px", md: "1rem" },
         //  border: "1px solid #f04e23",
         // boxShadow: "0 0 50px #f04e23",
-        backgroundColor: "#f04e23",
-        // backgroundColor: "#08080850",
+        // backgroundColor: "#f04e23",
+        backgroundColor: "#08080850",
         // py: "0px",
       }}
     >
@@ -73,8 +73,12 @@ const NavBar = ({ onClose, mode, setMode }) => {
           sx={{
             display: { xs: "block", sm: "block" },
             textDecoration: "none",
-            color: "black",
+            // color: "black",
             cursor: "pointer",
+            fontFamily: "'Montserrat', sans-serif", // or 'Bebas Neue'
+            fontWeight: 800,
+            color: "#FF5722",
+            letterSpacing: 2,
           }}
         >
           F<span style={{ color: "#ffffffff" }}>E</span>
@@ -90,14 +94,15 @@ const NavBar = ({ onClose, mode, setMode }) => {
               offset={-70} // Adjust based on navbar height
               duration={500}
               sx={{
-                color: "black",
+                color: "white",
                 // color: "#ff4d05",
                 textTransform: "capitalize",
                 fontSize: "1rem",
+                fontFamily: "'Share Tech', sans-serif",
                 fontWeight: 500,
 
                 "&.active": {
-                  color: "#ffffffff", // The orange glow color from your image
+                  color: "#ff4d05", // The orange glow color from your image
                   fontWeight: "bold",
                 },
                 "&:hover": {

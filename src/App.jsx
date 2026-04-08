@@ -21,7 +21,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import { getDesignTokens } from "./theme";
 
-
 export default function App() {
   const [mode, setMode] = useState("light");
   const [isLoggedIn, setLoggedIn] = useState(true);
@@ -54,14 +53,14 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline>
-        <Box  color={"text.primary"} sx={{ backgroundColor: "#080808",}}>
+        <Box color={"text.primary"} sx={{ backgroundColor: "#000" }}>
           <NavBar setMode={setMode} mode={mode} />
           <Stack
             direction={"row"}
-            sx={{ justifyContent: { xs: "center" } ,}}
+            sx={{ justifyContent: { xs: "center" } }}
             justifyContent={"space-between"}
             gap={2}
-            
+
             // spacing={2}
           >
             {/* <LeftBar setMode={setMode} mode={mode} /> */}
@@ -70,17 +69,14 @@ export default function App() {
               sx={{
                 padding: "10px 10px",
                 marginLeft: 0,
-               
               }}
             >
               <Routes>
                 <Route path="/" element={<Feed />} />
-                
-               </Routes>
+              </Routes>
             </Box>
             {/* <RightBar /> */}
           </Stack>
-          
         </Box>
       </CssBaseline>
     </ThemeProvider>

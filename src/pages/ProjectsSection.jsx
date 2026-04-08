@@ -86,7 +86,10 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <Box sx={{ bgcolor: "#050505", py: { xs: 4, md: 5 } }} id="projects">
+    <Box
+      sx={{ bgcolor: "#050505", paddingTop: 4, paddingBottom: 10 }}
+      id="projects"
+    >
       <Container maxWidth="lg">
         {/* Title */}
         <Typography
