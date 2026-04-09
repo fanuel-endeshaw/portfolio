@@ -43,7 +43,10 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <Box sx={{ bgcolor: "#000", py: 6 }} id="services">
+    <Box
+      sx={{ bgcolor: "#000", paddingTop: 2, paddingBottom: 10 }}
+      id="services"
+    >
       <Container maxWidth="lg">
         <Typography
           variant="h3"

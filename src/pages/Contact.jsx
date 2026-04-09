@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Container,
@@ -7,15 +7,44 @@ import {
   Button,
   Stack,
   IconButton,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import EmailIcon from "@mui/icons-material/Email";
 import DownloadIcon from "@mui/icons-material/Download";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 const Contact = () => {
+  const [open, setOpen] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mdapvzld", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setOpen(true);
+        e.target.reset(); // clear form
+      } else {
+        setError(true);
+      }
+    } catch (err) {
+      setError(true);
+    }
+  };
+
   return (
     <Box sx={{ bgcolor: "#000", py: { xs: 6, md: 4 } }} id="contact">
       <Container maxWidth="lg">
@@ -66,6 +95,7 @@ const Contact = () => {
           {/* Right: Contact Form */}
           <Box
             component="form"
+            onSubmit={handleSubmit}
             sx={{
               flex: 1,
               bgcolor: "rgba(255,255,255,0.05)",
@@ -80,45 +110,55 @@ const Contact = () => {
               <TextField
                 fullWidth
                 label="Name"
-                variant="outlined"
+                name="name"
+                required
+                // variant="contained"
                 InputLabelProps={{ style: { color: "#aaa" } }}
                 sx={{
-                  input: { color: "#fff" },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": { borderColor: "rgba(255,255,255,0.2)" },
-                    "&:hover fieldset": { borderColor: "#FF5722" },
+                  input: {
+                    color: "#fff",
                   },
+                  border: "solid",
+                  borderWidth: "1px",
+                  borderColor: "#696868ff",
+                  borderRadius: "12px",
                 }}
               />
               <TextField
                 fullWidth
                 label="Email"
+                name="email"
+                type="email"
+                required
                 variant="outlined"
                 InputLabelProps={{ style: { color: "#aaa" } }}
                 sx={{
                   input: { color: "#fff" },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": { borderColor: "rgba(255,255,255,0.2)" },
-                    "&:hover fieldset": { borderColor: "#FF5722" },
-                  },
+                  border: "solid",
+                  borderWidth: "1px",
+                  borderColor: "#696868ff",
+                  borderRadius: "12px",
                 }}
               />
               <TextField
                 fullWidth
                 label="Message"
+                name="message"
                 multiline
                 rows={4}
+                required
                 variant="outlined"
                 InputLabelProps={{ style: { color: "#aaa" } }}
                 sx={{
                   textarea: { color: "#fff" },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": { borderColor: "rgba(255,255,255,0.2)" },
-                    "&:hover fieldset": { borderColor: "#FF5722" },
-                  },
+                  border: "solid",
+                  borderWidth: "1px",
+                  borderColor: "#696868ff",
+                  borderRadius: "12px",
                 }}
               />
               <Button
+                type="submit"
                 variant="contained"
                 endIcon={<EmailIcon />}
                 sx={{
@@ -177,7 +217,7 @@ const Contact = () => {
             <InstagramIcon />
           </IconButton>
           <IconButton
-            href="mailto:fanuelite@email.com"
+            href="mailto:fanuelite@gmail.com"
             sx={{ color: "#fff", "&:hover": { color: "#FF5722" } }}
           >
             <EmailIcon />
@@ -189,7 +229,7 @@ const Contact = () => {
           <Button
             variant="outlined"
             endIcon={<DownloadIcon />}
-            href="/eurocv.pdf" // place your CV file in public folder
+            href="/eurocv.pdf"
             download
             sx={{
               color: "#fff",
@@ -209,6 +249,26 @@ const Contact = () => {
             Download CV
           </Button>
         </Box>
+
+        {/* Snackbar Alerts */}
+        <Snackbar
+          open={open}
+          autoHideDuration={4000}
+          onClose={() => setOpen(false)}
+        >
+          <Alert severity="success" sx={{ width: "100%" }}>
+            Message sent successfully!
+          </Alert>
+        </Snackbar>
+        <Snackbar
+          open={error}
+          autoHideDuration={4000}
+          onClose={() => setError(false)}
+        >
+          <Alert severity="error" sx={{ width: "100%" }}>
+            Failed to send message. Please try again.
+          </Alert>
+        </Snackbar>
       </Container>
     </Box>
   );

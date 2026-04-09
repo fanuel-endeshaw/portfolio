@@ -20,7 +20,34 @@ import Feed from "./components/Feed";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import { getDesignTokens } from "./theme";
+import { GlobalStyles } from "@mui/material";
 
+const ScrollbarStyles = (
+  <GlobalStyles
+    styles={(theme) => ({
+      "*::-webkit-scrollbar": {
+        width: "10px",
+        height: "8px",
+      },
+      "*::-webkit-scrollbar-track": {
+        background: theme.palette.mode === "dark" ? "#0b0b0b" : "#000000ff",
+      },
+      "*::-webkit-scrollbar-thumb": {
+        background: "#FE4A23", // Your orange accent
+        borderRadius: "10px",
+        border: `2px solid ${theme.palette.mode === "dark" ? "#0b0b0b" : "#0e0d0dff"}`,
+      },
+      "*::-webkit-scrollbar-thumb:hover": {
+        background: "#e63e1c",
+      },
+      // Support for Firefox
+      "*": {
+        scrollbarWidth: "thin",
+        scrollbarColor: `#FE4A23 ${theme.palette.mode === "dark" ? "#0b0b0b" : "#000000ff"}`,
+      },
+    })}
+  />
+);
 export default function App() {
   const [mode, setMode] = useState("light");
   const [isLoggedIn, setLoggedIn] = useState(true);
@@ -52,6 +79,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      {ScrollbarStyles}
       <CssBaseline>
         <Box color={"text.primary"} sx={{ backgroundColor: "#000" }}>
           <NavBar setMode={setMode} mode={mode} />

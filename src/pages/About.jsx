@@ -40,7 +40,7 @@ const About = () => {
               }}
             >
               <img
-                src="/pic2.jpg"
+                src="/pic.jpg"
                 alt="About Illustration"
                 style={{ width: "100%", height: "auto" }}
               />
@@ -59,10 +59,11 @@ const About = () => {
               <Typography
                 variant="h6"
                 sx={{
-                  fontWeight: 700,
+                  // fontWeight: 700,
                   mb: 2,
                   lineHeight: 1.3,
-                  fontSize: { xs: "1.4rem", md: "2rem" },
+                  fontFamily: "'Lilita One', sans-serif",
+                  fontSize: { xs: "1.2rem", md: "2rem" },
                 }}
               >
                 I am passionate about creating{" "}

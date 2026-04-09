@@ -1,88 +1,110 @@
 import {
-  AccountCircle,
-  Mail,
-  MailLockRounded,
-  NotificationAdd,
-  Pets,
-} from "@mui/icons-material";
-import {
   AppBar,
-  Avatar,
-  Badge,
   Box,
   Button,
+  Drawer,
   IconButton,
-  InputBase,
-  Menu,
-  MenuItem,
-  Stack,
-  styled,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
   Toolbar,
   Typography,
 } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
-import { Link } from "react-router-dom";
-import MenuIcon from "@mui/icons-material/Menu";
 
 const NavBar = ({ onClose, mode, setMode }) => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
   const navItems = [
     { label: "About Me", to: "about" },
     { label: "Tech stack", to: "stack" },
     { label: "Services", to: "services" },
     { label: "Projects", to: "projects" },
   ];
+
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    setDrawerOpen(open);
+  };
+
+  const drawerContent = (
+    <Box
+      sx={{
+        width: 220,
+        paddingTop: 2,
+        height: "100%",
+        backgroundColor: "#FF5722",
+      }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item.label} disablePadding>
+            <ListItemButton
+              component={ScrollLink}
+              to={item.to}
+              onClick={toggleDrawer(false)}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              <ListItemText primary={item.label} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
   return (
     <AppBar
       position="sticky"
       sx={{
-        // backgroundColor: "rgba(255, 255, 255, 0.32)",
-        //  backdropFilter: "blur(10px)",
-        // WebkitBackdropFilter: "blur(10px)",
-        //  boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
         display: "flex",
         justifyContent: "space-between",
         width: "85%",
         margin: "auto",
-        borderRadius: "22px",
+        // borderRadius: "22px",
         top: "8px",
-        // height: { xs: "30px", md: "1rem" },
-        //  border: "1px solid #f04e23",
-        // boxShadow: "0 0 50px #f04e23",
-        // backgroundColor: "#f04e23",
-        backgroundColor: "#08080850",
-        // py: "0px",
+        // backgroundColor: "#08080850",
+        backgroundColor: "transparent",
+        border: "none",
       }}
     >
-      <Toolbar
-        sx={{
-          display: "flex",
-          gap: "20px",
-          // margin: "auto",
-          justifyContent: "space-between",
-        }}
-      >
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Typography
-          variant="h4"
+          variant="h3"
           component={ScrollLink}
+          to="home"
           spy={true}
           smooth={true}
-          offset={-70} // Adjust based on navbar height
+          offset={-70}
           duration={500}
-          to="home"
           sx={{
-            display: { xs: "block", sm: "block" },
             textDecoration: "none",
-            // color: "black",
             cursor: "pointer",
-            fontFamily: "'Montserrat', sans-serif", // or 'Bebas Neue'
-            fontWeight: 800,
+            // fontFamily: "'Montserrat', sans-serif",
+            fontFamily: "'Titan One', sans-serif",
+            // fontWeight: 600,
             color: "#FF5722",
             letterSpacing: 2,
           }}
         >
           F<span style={{ color: "#ffffffff" }}>E</span>
         </Typography>
+
+        {/* Desktop Nav */}
         <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 3 }}>
           {navItems.map((item) => (
             <Button
@@ -91,24 +113,23 @@ const NavBar = ({ onClose, mode, setMode }) => {
               to={item.to}
               spy={true}
               smooth={true}
-              offset={-70} // Adjust based on navbar height
+              offset={-70}
               duration={500}
               sx={{
                 color: "white",
-                // color: "#ff4d05",
                 textTransform: "capitalize",
                 fontSize: "1rem",
-                fontFamily: "'Share Tech', sans-serif",
-                fontWeight: 500,
-
+                fontFamily: "'Lilita One', sans-serif",
+                // fontFamily: "'Titan One', sans-serif",
+                // fontStyle: "normal",
+                fontWeight: 300,
                 "&.active": {
-                  color: "#ff4d05", // The orange glow color from your image
+                  color: "#ff4d05",
                   fontWeight: "bold",
                 },
                 "&:hover": {
                   backgroundColor: "transparent",
                   color: "#fff",
-                  // color: "#ff4d05",
                 },
               }}
             >
@@ -116,15 +137,23 @@ const NavBar = ({ onClose, mode, setMode }) => {
             </Button>
           ))}
         </Box>
+
+        {/* Mobile Nav */}
         <IconButton
-          sx={{
-            display: { xs: "flex", sm: "none" },
-            color: "white",
-            fontSize: "3rem",
-          }}
+          sx={{ display: { xs: "flex", sm: "none" }, color: "white" }}
+          onClick={toggleDrawer(true)}
         >
           <MenuIcon />
         </IconButton>
+        <Drawer
+          // sx={{ backgroundColor: "#FF5722" }}
+          // color="#FF5722"
+          anchor="right"
+          open={drawerOpen}
+          onClose={toggleDrawer(false)}
+        >
+          {drawerContent}
+        </Drawer>
       </Toolbar>
     </AppBar>
   );

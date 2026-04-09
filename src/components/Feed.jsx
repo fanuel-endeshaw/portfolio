@@ -1,4 +1,4 @@
-import { Box, Stack, Typography, Button, IconButton } from "@mui/material";
+// import { Box, Stack, Typography, Button, IconButton } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
@@ -15,6 +15,22 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import EmailIcon from "@mui/icons-material/Email";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import DownloadIcon from "@mui/icons-material/Download";
+import {
+  Box,
+  Stack,
+  Typography,
+  Button,
+  IconButton,
+  keyframes,
+} from "@mui/material";
+// ... (your other imports)
+
+// 1. Define the floating animation
+const floating = keyframes`
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-17px); }
+  100% { transform: translateY(0px); }
+`;
 
 export default function Feed() {
   return (
@@ -29,13 +45,12 @@ export default function Feed() {
           px: { xs: 2, md: 10 },
           alignItems: "center",
           justifyContent: "center",
-          // height: "95vh",
           marginLeft: { md: "50px" },
-          paddingTop: 9,
+          paddingTop: { md: 12, xs: 7 },
           marginBottom: 17,
         }}
       >
-        {/* Introduction Section with fade-up */}
+        {/* Introduction Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,17 +59,24 @@ export default function Feed() {
           style={{ flex: 1 }}
         >
           <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
-            <Typography variant="h3" fontWeight="bold">
+            <Typography variant="h3" fontFamily={"'Titan One', sans-serif"}>
               Hi, It's <span style={{ color: "#f04e23" }}>Fanuel</span>
             </Typography>
+
             <Typography
               variant="h4"
               fontWeight="bold"
               sx={{
-                mb: 2,
+                mb: 1.6,
+                mt: 1.2,
                 display: "flex",
                 gap: "10px",
                 fontSize: { xs: "24px" },
+                fontFamily: "'Bricolage Grotesque', sans-serif",
+                justifyContent: {
+                  xs: "center",
+                  md: "flex-start",
+                }, // Centering fix for typewriter
               }}
             >
               I'm a
@@ -81,7 +103,9 @@ export default function Feed() {
                 color: "#a0a0a0",
                 maxWidth: "500px",
                 mb: 3,
-                textAlign: { xs: "left", md: "left" },
+                fontFamily: "'Lilita One', sans-serif",
+                mx: { xs: "auto", md: 0 }, // Centers text block on mobile
+                textAlign: { xs: "center", md: "left" },
               }}
             >
               I am a React Native Specialist and Fullstack Developer dedicated
@@ -92,16 +116,11 @@ export default function Feed() {
             </Typography>
 
             <Stack
-              direction="row"
+              direction={{ xs: "column", sm: "row" }} // Stack buttons/icons on small screens
               spacing={2}
+              alignItems="center"
               sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
             >
-              {/* <Button
-                variant="contained"
-                sx={{ bgcolor: "#f04e23", borderRadius: "20px", px: 4 }}
-              >
-                Hire
-              </Button> */}
               <Link
                 spy={true}
                 smooth={true}
@@ -116,45 +135,47 @@ export default function Feed() {
                     borderColor: "#f04e23",
                     borderRadius: "20px",
                     px: 4,
+                    "&:hover": { borderColor: "#fff", color: "#fff" },
                   }}
                 >
                   Contact
                 </Button>
               </Link>
-              <Stack direction="row" spacing={2} justifyContent="center" mb={4}>
-                <IconButton
-                  href="https://github.com/fanuel-endeshaw"
-                  target="_blank"
-                  sx={{ color: "#fff", "&:hover": { color: "#FF5722" } }}
-                >
-                  <GitHubIcon />
-                </IconButton>
-                <IconButton
-                  href="https://linkedin.com/in/fanuel-endeshaw"
-                  target="_blank"
-                  sx={{ color: "#fff", "&:hover": { color: "#FF5722" } }}
-                >
-                  <LinkedInIcon />
-                </IconButton>
-                <IconButton
-                  href="https://instagram.com/fanuel_en"
-                  target="_blank"
-                  sx={{ color: "#fff", "&:hover": { color: "#FF5722" } }}
-                >
-                  <InstagramIcon />
-                </IconButton>
-                <IconButton
-                  href="mailto:fanuelite@email.com"
-                  sx={{ color: "#fff", "&:hover": { color: "#FF5722" } }}
-                >
-                  <EmailIcon />
-                </IconButton>
+
+              <Stack direction="row" spacing={1}>
+                {[
+                  {
+                    icon: <GitHubIcon />,
+                    url: "https://github.com/fanuel-endeshaw",
+                  },
+                  {
+                    icon: <LinkedInIcon />,
+                    url: "https://linkedin.com/in/fanuel-endeshaw",
+                  },
+                  {
+                    icon: <InstagramIcon />,
+                    url: "https://instagram.com/fanuel_en",
+                  },
+                  { icon: <EmailIcon />, url: "mailto:fanuelite@email.com" },
+                ].map((social, index) => (
+                  <IconButton
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    sx={{
+                      color: "#fff",
+                      "&:hover": { color: "#f04e23", transform: "scale(1.1)" },
+                    }}
+                  >
+                    {social.icon}
+                  </IconButton>
+                ))}
               </Stack>
             </Stack>
           </Box>
         </motion.div>
 
-        {/* Image Section with glow + fade-in */}
+        {/* Image Section with Infinite Float */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -168,6 +189,8 @@ export default function Feed() {
               justifyContent: "center",
               alignItems: "center",
               position: "relative",
+              // 2. Apply the animation here
+              animation: `${floating} 4s ease-in-out infinite`,
             }}
           >
             <Box
@@ -177,13 +200,17 @@ export default function Feed() {
                 borderRadius: "50%",
                 overflow: "hidden",
                 border: "4px solid #f04e23",
-                boxShadow: "0 0 50px #f04e23", // Glow effect
+                boxShadow: "0 0 50px rgba(240, 78, 35, 0.4)",
               }}
             >
               <img
-                src="/pic.jpg"
+                src="/pic3.jpg"
                 alt="Profile"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
               />
             </Box>
           </Box>

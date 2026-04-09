@@ -21,12 +21,12 @@ const projects = [
     title: "Car Rental System",
     category: "Desktop / JavaFX",
     description:
-      "A robust desktop application for managing car rentals, including booking workflows, inventory tracking, and billing.",
+      "A robust desktop application for managing car rentals, including  inventory tracking, with reporting.",
     image: "/car.jpg",
     type: "desktop",
     tech: ["Java", "JavaFX", "MySQL"],
-    github: "#",
-    live: "#",
+    github: "https://github.com/fanuel-endeshaw/java-gui",
+    live: "",
   },
   {
     title: "Traffic Light Controller",
@@ -35,20 +35,20 @@ const projects = [
       "A hardware-integrated traffic light simulation offering real-time synchronization and sensor-triggered light phasing.",
     image: "/traffic.jpg",
     type: "desktop",
-    tech: ["C++", "Arduino", "IoT"],
-    github: "#",
-    live: "#",
+    tech: ["C++", "Atmega32", "IoT"],
+    github:
+      "https://github.com/fanuel-endeshaw/Embedded-Software-Engineering/tree/main/Embedded%20traffic%20light",
+    live: "",
   },
   {
     title: "Real Estate Management",
     category: "Odoo / ERP",
-    description:
-      "ERP solution for managing properties, clients, and lease workflows.",
-    image: "/car.jpg",
+    description: "ERP solution for managing properties and clients.",
+    image: "/real.png",
     type: "desktop",
     tech: ["Python", "Odoo", "PostgreSQL"],
-    github: "#",
-    live: "#",
+    github: "",
+    live: "",
   },
   {
     title: "Live Transcription App",
@@ -57,8 +57,9 @@ const projects = [
     image: "/live.jpg",
     type: "mobile",
     tech: ["React Native", "FastAPI"],
-    github: "#",
-    live: "#",
+    github:
+      "https://github.com/fanuel-endeshaw/react-native/tree/main/mlProject",
+    live: "",
   },
   // {
   //   title: "ReDo Mobile App",
@@ -76,18 +77,19 @@ const projects = [
     category: "Frontend",
     description:
       "Responsive e-commerce UI with filtering and smooth cart interactions.",
-    image: "/redo.jpg",
+    image: "/ecom.png",
     type: "mobile",
     tech: ["React", "MUI", "Redux"],
-    github: "#",
-    live: "#",
+    github:
+      "https://github.com/fanuel-endeshaw/react-native/tree/main/smartEcommerceUi",
+    live: "",
   },
 ];
 
 const ProjectsSection = () => {
   return (
     <Box
-      sx={{ bgcolor: "#050505", paddingTop: 4, paddingBottom: 10 }}
+      sx={{ bgcolor: "#050505", paddingTop: 2, paddingBottom: 10 }}
       id="projects"
     >
       <Container maxWidth="lg">
