@@ -141,7 +141,7 @@ const SkillCard = ({ name, icon }) => (
 
 const Skills = () => {
   return (
-    <Box id="stack" sx={{ bgcolor: "#000", py: 5, minHeight: "100vh" }}>
+    <Box id="stack" sx={{ bgcolor: "#000", pb: 5, pt: 3, minHeight: "100vh" }}>
       <Container maxWidth="lg">
         {/* Header Section */}
         <Stack spacing={1} sx={{ mb: 8, alignItems: "center" }}>

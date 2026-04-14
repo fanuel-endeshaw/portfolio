@@ -51,7 +51,8 @@ const About = () => {
                 bgcolor: "#1a1a2e",
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "flex-end",
+                alignItems: "center",
+                // textAlign: "center",
                 boxShadow: "0 20px 40px rgba(0,0,0,0.5)",
               }}
             >
@@ -81,7 +82,7 @@ const About = () => {
                   fontSize: { xs: "1.2rem", md: "2rem" },
                 }}
               >
-                I am{" "}
+                I am
                 <span style={{ color: "#f04e23" }}>Fanuel Endeshaw Chanie</span>
                 , dedicated to crafting impactul digital solutions.
               </Typography>
@@ -132,6 +133,7 @@ const About = () => {
                   px: 4,
                   py: 1.5,
                   mt: 1,
+
                   textTransform: "none",
                   transition: "0.3s",
                   "&:hover": {

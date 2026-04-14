@@ -74,7 +74,7 @@ export default function Feed() {
                 mt: 1.2,
                 display: "flex",
                 gap: "10px",
-                fontSize: { xs: "24px" },
+                fontSize: { xs: "22px" },
                 fontFamily: "'Bricolage Grotesque', sans-serif",
                 justifyContent: {
                   xs: "center",
@@ -91,6 +91,7 @@ export default function Feed() {
                       "Fullstack Developer",
                       "Spring Boot Expert",
                       "Node.js Architect",
+                      "Odoo Developer",
                       "Future Software Engineer",
                     ],
                     autoStart: true,
@@ -108,7 +109,8 @@ export default function Feed() {
                 mb: 3,
                 fontFamily: "'Lilita One', sans-serif",
                 mx: { xs: "auto", md: 0 }, // Centers text block on mobile
-                textAlign: { xs: "center", md: "left" },
+                textAlign: { xs: "left", md: "left" },
+                // lineHeight: 1.3,
               }}
             >
               I am a React Native Specialist and Fullstack Developer dedicated
@@ -121,8 +123,10 @@ export default function Feed() {
             <Stack
               direction={{ xs: "column", sm: "row" }} // Stack buttons/icons on small screens
               spacing={2}
-              alignItems="center"
-              sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
+              sx={{
+                justifyContent: { xs: "center", md: "flex-start" },
+                alignItems: "center",
+              }}
             >
               <Link
                 spy={true}
@@ -137,6 +141,8 @@ export default function Feed() {
                     color: "#f04e23",
                     borderColor: "#f04e23",
                     borderRadius: "20px",
+                    marginTop: { xs: 1.2 },
+                    marginBottom: { xs: 1.5 },
                     px: 4,
                     "&:hover": { borderColor: "#fff", color: "#fff" },
                   }}
