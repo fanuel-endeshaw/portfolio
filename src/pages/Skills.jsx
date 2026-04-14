@@ -144,7 +144,7 @@ const Skills = () => {
     <Box id="stack" sx={{ bgcolor: "#000", py: 5, minHeight: "100vh" }}>
       <Container maxWidth="lg">
         {/* Header Section */}
-        <Stack alignItems="center" spacing={1} sx={{ mb: 8 }}>
+        <Stack spacing={1} sx={{ mb: 8, alignItems: "center" }}>
           <Typography
             variant="subtitle1"
             sx={{ color: "#a0a0a0", letterSpacing: 2 }}

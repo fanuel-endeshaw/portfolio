@@ -59,7 +59,10 @@ export default function Feed() {
           style={{ flex: 1 }}
         >
           <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
-            <Typography variant="h3" fontFamily={"'Titan One', sans-serif"}>
+            <Typography
+              variant="h3"
+              sx={{ fontFamily: "'Titan One', sans-serif" }}
+            >
               Hi, It's <span style={{ color: "#f04e23" }}>Fanuel</span>
             </Typography>
 

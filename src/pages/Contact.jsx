@@ -118,9 +118,10 @@ const Contact = () => {
                   input: {
                     color: "#fff",
                   },
-                  border: "solid",
-                  borderWidth: "1px",
-                  borderColor: "#696868ff",
+                  // border: "solid",
+                  // borderWidth: "1px",
+                  // borderColor: "#696868ff",
+                  bgcolor: "#696868ff",
                   borderRadius: "12px",
                 }}
               />
@@ -130,14 +131,19 @@ const Contact = () => {
                 name="email"
                 type="email"
                 required
-                variant="outlined"
+                // variant="outlined"
                 InputLabelProps={{ style: { color: "#aaa" } }}
                 sx={{
                   input: { color: "#fff" },
-                  border: "solid",
-                  borderWidth: "1px",
-                  borderColor: "#696868ff",
+                  // border: "solid",
+                  // borderWidth: "1px",
+                  // borderColor: "#696868ff",
+                  bgcolor: "#696868ff",
                   borderRadius: "12px",
+                  // "& .MuiInputBase-input::placeholder": {
+                  //   color: "#f04e23",
+                  //   opacity: 1, // Ensure the color is vibrant
+                  // },
                 }}
               />
               <TextField
@@ -147,14 +153,15 @@ const Contact = () => {
                 multiline
                 rows={4}
                 required
-                variant="outlined"
+                // variant="outlined"
                 InputLabelProps={{ style: { color: "#aaa" } }}
                 sx={{
                   textarea: { color: "#fff" },
-                  border: "solid",
-                  borderWidth: "1px",
-                  borderColor: "#696868ff",
+                  // border: "solid",
+                  // borderWidth: "1px",
+                  // borderColor: "#696868ff",
                   borderRadius: "12px",
+                  bgcolor: "#696868ff",
                 }}
               />
               <Button
@@ -194,7 +201,12 @@ const Contact = () => {
         >
           Connect with me
         </Typography>
-        <Stack direction="row" spacing={2} justifyContent="center" mb={4}>
+        <Stack
+          direction="row"
+          spacing={2}
+          sx={{ justifyContent: "center", mb: 1.5 }}
+          // mb={4}
+        >
           <IconButton
             href="https://github.com/fanuel-endeshaw"
             target="_blank"

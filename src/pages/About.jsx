@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { motion } from "framer-motion";
 
 const About = () => {
@@ -88,7 +89,7 @@ const About = () => {
               <Typography
                 sx={{
                   color: "#a0a0a0",
-                  mb: 2,
+                  mb: 1.4,
                   lineHeight: 1.8,
                   fontSize: "1.05rem",
                 }}
@@ -104,7 +105,7 @@ const About = () => {
                 <Typography
                   sx={{
                     color: "#a0a0a0",
-                    mb: 4,
+                    mb: 2,
                     lineHeight: 1.8,
                     fontSize: "1.05rem",
                   }}
@@ -122,7 +123,7 @@ const About = () => {
                 variant="contained"
                 onClick={handleToggle}
                 endIcon={
-                  expanded ? <KeyboardArrowUpIcon /> : <ArrowForwardIcon />
+                  expanded ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
                 }
                 sx={{
                   bgcolor: "#333",
@@ -130,7 +131,7 @@ const About = () => {
                   borderRadius: "30px",
                   px: 4,
                   py: 1.5,
-                  mt: 2,
+                  mt: 1,
                   textTransform: "none",
                   transition: "0.3s",
                   "&:hover": {
