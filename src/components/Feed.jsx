@@ -61,7 +61,10 @@ export default function Feed() {
           <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
             <Typography
               variant="h3"
-              sx={{ fontFamily: "'Titan One', sans-serif" }}
+              sx={{
+                fontFamily: "'Titan One', sans-serif",
+                fontSize: { xs: 41 },
+              }}
             >
               Hi, It's <span style={{ color: "#f04e23" }}>Fanuel</span>
             </Typography>
@@ -110,6 +113,7 @@ export default function Feed() {
                 fontFamily: "'Lilita One', sans-serif",
                 mx: { xs: "auto", md: 0 }, // Centers text block on mobile
                 textAlign: { xs: "left", md: "left" },
+                fontSize: { xs: "15px" },
                 // lineHeight: 1.3,
               }}
             >
@@ -204,8 +208,8 @@ export default function Feed() {
           >
             <Box
               sx={{
-                width: { xs: "280px", md: "400px" },
-                height: { xs: "280px", md: "400px" },
+                width: { xs: "260px", md: "400px" },
+                height: { xs: "260px", md: "400px" },
                 borderRadius: "50%",
                 overflow: "hidden",
                 border: "4px solid #f04e23",

@@ -69,14 +69,16 @@ const NavBar = ({ onClose, mode, setMode }) => {
 
   return (
     <AppBar
-      position="sticky"
+      // position="sticky"
       sx={{
+        position: "sticky",
         display: "flex",
         justifyContent: "space-between",
         width: "85%",
         margin: "auto",
         // borderRadius: "22px",
         top: "8px",
+        zIndex: 1100,
         // backgroundColor: "#08080850",
         backgroundColor: "transparent",
         border: "none",

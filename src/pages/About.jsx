@@ -24,7 +24,7 @@ const About = () => {
       id="about"
       sx={{
         bgcolor: "#000",
-        py: { xs: 8, md: 10 },
+        py: { xs: 3, md: 10 },
         color: "white",
       }}
     >

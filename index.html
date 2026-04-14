@@ -25,10 +25,30 @@
       href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=BBH+Bogle&family=Bebas+Neue&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Lilita+One&family=Oswald:wght@200..700&family=Outfit:wght@100..900&family=Permanent+Marker&family=Share+Tech&family=Smooch+Sans:wght@100..900&family=Titan+One&display=swap"
       rel="stylesheet"
     />
+    <style>
+      html {
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        background-color: #000;
+        overflow-x: clip;
+      }
+
+      #root {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
     <title>Fanuel Endeshaw's portfolio</title>
   </head>
   <body>
-    <div id="root" style="background-color: black"></div>
+    <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

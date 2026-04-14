@@ -46,7 +46,7 @@ const Contact = () => {
   };
 
   return (
-    <Box sx={{ bgcolor: "#000", py: { xs: 6, md: 4 } }} id="contact">
+    <Box sx={{ bgcolor: "#000", py: { xs: 4, md: 4 } }} id="contact">
       <Container maxWidth="lg">
         {/* Title */}
         <Typography
